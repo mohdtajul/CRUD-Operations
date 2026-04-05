@@ -38,7 +38,7 @@ This project demonstrates basic database operations with a RESTful backend and a
 ``` bash
 CRUD-Operations/
 │
-├── BackendServer/
+├── backend/
 │   ├── models/
 │   │   └── User.js
 │   ├── node_modules/
@@ -46,7 +46,7 @@ CRUD-Operations/
 │   ├── package.json
 │   └── package-lock.json
 │
-├── client/
+├── frontend/
 │   ├── public/
 │   ├── src/
 │   │   ├── App.jsx
@@ -71,7 +71,7 @@ cd CRUD-Operations
 
 ### 2️⃣ Backend Setup
 ```bash
-cd BackendServer
+cd backend
 npm install
 nodemon index.js
 ```
@@ -80,7 +80,7 @@ nodemon index.js
 ```bash
 Open a new terminal:
 
-cd client
+cd frontend
 npm install
 npm run dev
 ```
