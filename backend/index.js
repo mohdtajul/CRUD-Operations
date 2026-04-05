@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const UserModel= require('./models/User')
+const UserModel = require('./models/User')
 
 
 const app = express()
@@ -11,24 +11,64 @@ app.use(express.json())
 
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.error(err));
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.error(err));
 
 
-  app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     UserModel.find({})
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-  })
-  
-  app.post("/createUser", (req, res) => {
-    console.log("Received data:", req.body); 
+        .then(users => res.json(users))
+        .catch(err => res.json(err))
+})
+
+app.post("/createUser", (req, res) => {
+    console.log("Received data:", req.body);
     UserModel.create(req.body)
-      .then(users => res.json(users))
-      .catch(err => res.json(err));
-  });
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
+
+app.get("/getUser/:id", async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.id);
+        res.json(user);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+app.put("/updateUser/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const updatedUser = await UserModel.findByIdAndUpdate(
+            id,
+            req.body,
+            { new: true }
+        );
+
+        res.json(updatedUser);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+    
+
+app.delete("/deleteUser/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        await UserModel.findByIdAndDelete(id);
+
+        res.json({ message: "User deleted successfully" });
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 
-app.listen(3001, ()=>{
+app.listen(3001, () => {
     console.log("server is running");
 })
