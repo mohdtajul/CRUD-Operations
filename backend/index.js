@@ -9,6 +9,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const PORT = process.env.PORT || 3001;
+
+
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected"))
@@ -69,6 +72,6 @@ app.delete("/deleteUser/:id", async (req, res) => {
 });
 
 
-app.listen(3001, () => {
-    console.log("server is running");
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 })
