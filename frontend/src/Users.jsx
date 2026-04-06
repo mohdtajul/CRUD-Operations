@@ -7,14 +7,14 @@ function Users() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3001')
+        axios.get('https://user-crud-ae5s.onrender.com')
             .then(result => setUsers(result.data))
             .catch(err => console.log(err))
     }, [])
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3001/deleteUser/${id}`)
+            await axios.delete(`https://user-crud-ae5s.onrender.com/deleteUser/${id}`)
 
             // UI update
             setUsers(users.filter((user) => user._id !== id))
