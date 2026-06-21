@@ -11,7 +11,7 @@ function UpdateUser() {
     const [age, setAge] = useState("");
 
     useEffect(() => {
-        axios.get(`https://user-crud-ae5s.onrender.com/getUser/${id}`)
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/getUser/${id}`)
             .then(result => {
                 setName(result.data.name)
                 setEmail(result.data.email)
@@ -24,7 +24,7 @@ function UpdateUser() {
         e.preventDefault(); 
 
         try {
-            await axios.put(`https://user-crud-ae5s.onrender.com/updateUser/${id}`, {
+            await axios.put(`${import.meta.env.VITE_BACKEND_URL}/updateUser/${id}`, {
                 name,
                 email,
                 age

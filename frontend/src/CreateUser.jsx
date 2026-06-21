@@ -11,7 +11,7 @@ function CreateUser(){
 
     const Submit = (e)=>{
         e.preventDefault();
-        axios.post("https://user-crud-ae5s.onrender.com/createUser", {name, email, age})
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/createUser`, {name, email, age})
         .then(result => {
             console.log(result)
             navigate('/')

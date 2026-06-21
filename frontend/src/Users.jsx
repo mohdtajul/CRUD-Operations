@@ -7,14 +7,14 @@ function Users() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        axios.get('https://user-crud-ae5s.onrender.com')
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}`)
             .then(result => setUsers(result.data))
             .catch(err => console.log(err))
     }, [])
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://user-crud-ae5s.onrender.com/deleteUser/${id}`)
+            await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/deleteUser/${id}`)
 
             // UI update
             setUsers(users.filter((user) => user._id !== id))
