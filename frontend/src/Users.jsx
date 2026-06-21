@@ -7,9 +7,21 @@ function Users() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BACKEND_URL}`)
-            .then(result => setUsers(result.data))
-            .catch(err => console.log(err))
+
+        const url = `${import.meta.env.VITE_BACKEND_URL}`
+
+        console.log("URL =", url)
+
+        axios.get(url)
+            .then(result => {
+                console.log(result.data)
+                setUsers(result.data)
+            })
+            .catch(err => {
+                console.log(err.response)
+                console.log(err)
+            })
+
     }, [])
 
     const handleDelete = async (id) => {
