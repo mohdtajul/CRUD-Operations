@@ -28,3 +28,6 @@ jobs:
 
       - name: Push Frontend Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+        
+      - name: Trigger Frontend Render Deploy
+        run: curl "${{ secrets.RENDER_FRONTEND_HOOK }}"

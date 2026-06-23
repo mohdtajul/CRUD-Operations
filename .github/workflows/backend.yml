@@ -25,13 +25,13 @@ jobs:
         with:
 
           username: ${{ secrets.DOCKER_USERNAME }}
-
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build Backend Image
-
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest ./backend
 
       - name: Push Backend Image
-
         run: docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
+
+      - name: Trigger Backend Render Deploy
+        run: curl "${{ secrets.RENDER_BACKEND_HOOK }}"
