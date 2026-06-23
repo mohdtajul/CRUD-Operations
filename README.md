@@ -1,96 +1,266 @@
-# CRUD Operations Application
+# 🚀 Full Stack CI/CD Pipeline
 
-A full-stack CRUD (Create, Read, Update, Delete) application built using **Node.js, Express, MongoDB, and React**.  
-This project demonstrates basic database operations with a RESTful backend and a simple frontend interface.
+> Production-ready end-to-end DevOps pipeline built using React, Node.js, Docker, GitHub Actions, Docker Hub and Render.
 
----
-
-## 🚀 Features
-- Create new records  
-- Read and display data from MongoDB  
-- Update existing records  
-- Delete records  
-- REST API integration  
-- MongoDB Atlas support  
-- Clean project structure  
+This project was created to demonstrate practical DevOps skills by automating the entire deployment lifecycle instead of focusing only on CRUD functionality.
 
 ---
 
-## 🛠 Tech Stack
+## 🎯 Project Objective
+
+The main objective of this project was to build a complete CI/CD pipeline where every code push automatically:
+
+- Builds Docker images
+- Pushes images to Docker Hub
+- Triggers deployment on Render
+- Pulls the latest image
+- Deploys the application to production
+
+This project demonstrates how modern deployment automation works in real-world applications.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+                Developer
+                    │
+                    │
+                Git Push
+                    │
+                    ▼
+
+          GitHub Repository
+                    │
+                    ▼
+
+           GitHub Actions CI
+                    │
+         ┌──────────┴──────────┐
+         │                     │
+         ▼                     ▼
+
+ Build Frontend Image   Build Backend Image
+         │                     │
+         ▼                     ▼
+
+      Docker Hub          Docker Hub
+         │                     │
+         ▼                     ▼
+
+ Render Deploy Hook   Render Deploy Hook
+         │                     │
+         ▼                     ▼
+
+ Render Pull Latest   Render Pull Latest
+      Docker Image      Docker Image
+         │                     │
+         ▼                     ▼
+
+Frontend Production   Backend Production
+```
+
+---
+
+## ⚙️ Tech Stack
 
 ### Frontend
-- React  
-- JavaScript  
-- HTML  
-- CSS  
-- Axios  
+
+- React
+- Vite
+- Bootstrap
 
 ### Backend
-- Node.js  
-- Express.js  
-- MongoDB  
-- Mongoose  
-- CORS  
+
+- Node.js
+- Express.js
+
+### Database
+
+- MongoDB Atlas
+
+### DevOps
+
+- Docker
+- Docker Hub
+- GitHub Actions
+- Render
+- Deploy Hooks
+- GitHub Secrets
 
 ---
 
 ## 📁 Project Structure
-``` bash
-CRUD-Operations/
+
+```text
+.
+├── frontend
 │
-├── backend/
-│   ├── models/
-│   │   └── User.js
-│   ├── node_modules/
-│   ├── index.js
-│   ├── package.json
-│   └── package-lock.json
+├── backend
 │
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── components/
-│   ├── index.html
-│   ├── package.json
-│   ├── package-lock.json
-│   └── vite.config.js
-│
-├── README.md
-└── .gitignore
-
-```
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/mohdtajul/CRUD-Operations.git
-cd CRUD-Operations
+└── .github
+    └── workflows
+        ├── frontend.yml
+        └── backend.yml
 ```
 
-### 2️⃣ Backend Setup
-```bash
-cd backend
-npm install
-nodemon index.js
+---
+
+## 🔄 CI/CD Workflow
+
+### Frontend Pipeline
+
+```text
+Frontend Code Change
+          │
+
+      Git Push
+          │
+
+ GitHub Actions Run
+          │
+
+Docker Image Build
+          │
+
+Push To Docker Hub
+          │
+
+Trigger Render Hook
+          │
+
+Render Pull Latest Image
+          │
+
+Frontend Deployed
 ```
 
-### 3️⃣ Frontend Setup
-```bash
-Open a new terminal:
+---
 
-cd frontend
-npm install
-npm run dev
+### Backend Pipeline
+
+```text
+Backend Code Change
+          │
+
+      Git Push
+          │
+
+ GitHub Actions Run
+          │
+
+Docker Image Build
+          │
+
+Push To Docker Hub
+          │
+
+Trigger Render Hook
+          │
+
+Render Pull Latest Image
+          │
+
+Backend Deployed
 ```
 
-## 👤 Author
+---
 
-**Mohd Tajul**  
-MCA @ NIT Bhopal  
-MERN Stack Developer  
+## ✨ Features
 
-🔗 GitHub: https://github.com/mohdtajul  
-🔗 LinkedIn: https://www.linkedin.com/in/mohd-tajul-647b11285/
-# trigger
+- ✅ React frontend containerized using Docker
+- ✅ Node.js backend containerized using Docker
+- ✅ MongoDB Atlas integration
+- ✅ GitHub Actions automation
+- ✅ Docker Hub integration
+- ✅ Render automated deployment
+- ✅ Deploy Hooks integration
+- ✅ Environment variable management
+- ✅ Production deployment automation
+- ✅ End-to-end CI/CD pipeline
+
+---
+
+## 🔐 Environment Variables
+
+### Frontend
+
+```env
+VITE_BACKEND_URL=your_backend_url
+```
+
+### Backend
+
+```env
+MONGO_URI=your_mongodb_connection_string
+
+PORT=3001
+```
+
+---
+
+## 🧠 Problems Solved During Development
+
+This project involved solving multiple real-world deployment issues:
+
+- Docker image automation
+- Render deployment configuration
+- Environment variable handling
+- Vite build-time variables
+- Port binding issues
+- GitHub Secrets management
+- Docker Hub image synchronization
+- Production debugging
+
+---
+
+## 🎓 Skills Demonstrated
+
+### Development
+
+- React
+- Node.js
+- Express.js
+- MongoDB Atlas
+
+### DevOps
+
+- Git
+- GitHub
+- Docker
+- Docker Hub
+- GitHub Actions
+- CI/CD
+- Render
+- Deploy Hooks
+- GitHub Secrets
+- Environment Variables
+- Production Debugging
+
+---
+
+## 🧠 Key Learning
+
+Building a CRUD application was straightforward.
+
+The actual challenge was designing, automating and debugging a complete production deployment pipeline.
+
+This project focuses more on DevOps practices and CI/CD implementation rather than CRUD functionality.
+
+---
+
+## 🚀 Future Improvements
+
+- Kubernetes deployment
+- AWS deployment
+- Nginx reverse proxy
+- Monitoring integration
+- Logging integration
+
+---
+
+## 👨‍💻 Author
+
+Mohd Tajul
+
+GitHub: https://github.com/mohdtajul
