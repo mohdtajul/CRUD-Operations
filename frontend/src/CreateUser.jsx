@@ -40,7 +40,7 @@ function CreateUser(){
                         <input type="text" placeholder="Enter Age" className="form-control" 
                         onChange ={(e) => setAge(e.target.value)}/>
                     </div>
-                    <button className="btn btn-success">submit</button>
+                    <button className="btn btn-success">submit Now</button>
                 </form>
 
             </div>
