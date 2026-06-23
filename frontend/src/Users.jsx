@@ -38,8 +38,38 @@ function Users() {
 
     return (
         <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-            <h3>List of the User's</h3>
             <div className="w-50 bg-white rounded p-3">
+                <div className="text-center mb-4">
+
+                    <h1
+                        className="fw-bold mb-2"
+                        style={{
+                            fontSize: "3rem",
+                            background: "linear-gradient(90deg,#2563eb,#7c3aed)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            letterSpacing: "1px"
+                        }}
+                    >
+                        ✨ List of Users
+                    </h1>
+
+                    <p
+                        className="text-secondary"
+                        style={{ fontSize: "18px" }}
+                    >
+                        Manage and organize your users
+                    </p>
+
+                    <hr
+                        style={{
+                            width: "180px",
+                            margin: "0 auto",
+                            border: "2px solid #7c3aed",
+                            opacity: 1
+                        }}
+                    />
+                </div>
                 <Link to="/create" className='btn btn-success'>Add User+</Link>
                 <div style={{ maxHeight: "400px", overflowY: "auto" }}>
                     <table className="table">
