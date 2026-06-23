@@ -6,6 +6,12 @@ This project was created to demonstrate practical DevOps skills by automating th
 
 ---
 
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?logo=render&logoColor=black)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
+
 ## 🎯 Project Objective
 
 The main objective of this project was to build a complete CI/CD pipeline where every code push automatically:
@@ -251,11 +257,12 @@ This project focuses more on DevOps practices and CI/CD implementation rather th
 
 ## 🚀 Future Improvements
 
-- Kubernetes deployment
-- AWS deployment
+- Deploy on AWS (EC2/ECS)
+- Kubernetes orchestration
 - Nginx reverse proxy
-- Monitoring integration
-- Logging integration
+- Monitoring with Prometheus
+- Grafana dashboards
+- Centralized logging
 
 ---
 
